@@ -2,7 +2,7 @@
 
 #include<stdio.h>
 
-void *ft_memset(char *ptr, int value, int num)
+void ft_memset(char *ptr, int value, int num)
 {
     int i;
 
@@ -13,17 +13,15 @@ void *ft_memset(char *ptr, int value, int num)
         i++;
     }
 }
-
+/*
 int main()
 {
     char str[5];
-    ft_memset(str, 75, 3);
+    ft_memset(str, 75, sizeof(str));
     
     for (int i = 0; str[i]; i++)
     {
         printf("%c", str[i]);
     }
-    
-
     return 0;
-}
+}*/
