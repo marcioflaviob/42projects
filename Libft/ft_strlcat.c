@@ -1,26 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mbrandao <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 19:42:03 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/09/13 22:33:14 by mbrandao         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 int	ft_strlen(char *str)
 {
-	int	size;
+	int	i;
 
-	size = 0;
-	while (*str != '\0')
-	{
-		size++;
-		str++;
-	}
-	return (size);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)

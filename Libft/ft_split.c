@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mbrandao <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 13:39:31 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/09/24 13:48:00 by mbrandao         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -23,21 +13,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	char_check(char c, char *charset)
-{
-	int	i;
-
-	i = 0;
-	while (charset[i])
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	count_words(char *str, char *charset)
+int	count_words(char *str, char c)
 {
 	int	i;
 	int	words;
@@ -46,17 +22,17 @@ int	count_words(char *str, char *charset)
 	words = 0;
 	while (str[i])
 	{
-		while ((str[i] != 0) && char_check(str[i], charset))
+		while ((str[i] != 0) && (str[i] == c))
 			i++;
 		if (str[i])
 			words++;
-		while ((str[i] != 0) && !(char_check(str[i], charset)))
+		while ((str[i] != 0) && (str[i] != c))
 			i++;
 	}
 	return (words);
 }
 
-int	get_bigg(char *str, char *charset)
+int	get_bigg(char *str, char c)
 {
 	int	i;
 	int	j;
@@ -67,7 +43,7 @@ int	get_bigg(char *str, char *charset)
 	j = 1;
 	while (str[i])
 	{
-		if (char_check(str[i], charset) || str[i + 1] == 0)
+		if (str[i] == c || str[i + 1] == 0)
 		{
 			if (j > k)
 				k = j;
@@ -79,23 +55,23 @@ int	get_bigg(char *str, char *charset)
 	return (k);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char *str, char c)
 {
 	int		i;
 	int		j;
 	int		x;
 	char	**tab;
 
-	tab = (char **) malloc((count_words(str, charset) + 1) * sizeof(char *));
+	tab = (char **) malloc((count_words(str, c) + 1) * sizeof(char *));
 	i = 0;
 	j = 0;
 	x = 0;
-	while (i < count_words(str, charset))
+	while (i < count_words(str, c))
 	{
-		tab[i] = (char *) malloc(get_bigg(str, charset) + 1 * sizeof(char));
-		while (char_check(str[j], charset) && str[j] != 0)
+		tab[i] = (char *) malloc(get_bigg(str, c) + 1 * sizeof(char));
+		while ((str[j] == c) && (str[j] != 0))
 			j++;
-		while (!char_check(str[j], charset) && str[j] != 0)
+		while ((str[j] != c) && (str[j] != 0))
 			tab[i][x++] = str[j++];
 		tab[i][x] = '\0';
 		x = 0;
@@ -110,9 +86,10 @@ int	main(int argc, char *argv[])
 {
 	(void) argc;
 	int i = 0;
+	char c = argv[2][0];
 	char **tab;
 
-	tab = ft_split(argv[1], argv[2]);
+	tab = ft_split(argv[1], c);
 	while (tab[i])
 	{
 		printf("%s\n", tab[i++]);
