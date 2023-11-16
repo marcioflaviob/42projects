@@ -20,7 +20,9 @@ int	ft_strcount(char *str, char *str2, unsigned int n)
 	return (size);
 }
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+//     int strncmp(const char *s1, const char *s2, size_t n);
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	int	size;
 

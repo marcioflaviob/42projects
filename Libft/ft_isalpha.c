@@ -3,11 +3,11 @@
 
 #include <stdio.h>
 
-int	ft_isalpha(int a)
+int	ft_isalpha(int c)
 {
-	if ((a < 65) || (a > 90))
+	if ((c < 65) || (c > 90))
 	{
-		if ((a < 97) || (a > 122))
+		if ((c < 97) || (c > 122))
 			return (0);
 	}
 	else

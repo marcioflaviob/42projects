@@ -1,5 +1,7 @@
 
 
+#include <stddef.h>
+
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -29,20 +31,20 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	return (dest);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+//strlcat(char * restrict dst, const char * restrict src, size_t dstsize);
+
+size_t	ft_strlcat(char * restrict dst, char * restrict src, size_t dstsize)
 {
 	int	dest_len;
 	int	src_len;
-	int	int_size;
 	int	space_left;
 
-	dest_len = ft_strlen(dest);
+	dest_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	int_size = (int) size;
-	if (int_size <= dest_len)
-		return (int_size + src_len);
-	space_left = int_size - (dest_len - 1);
-	dest = ft_strncat(dest, src, space_left);
-	dest[int_size - 1] = '\0';
+	if (dstsize <= dest_len)
+		return (dstsize + src_len);
+	space_left = dstsize - (dest_len - 1);
+	dst = ft_strncat(dst, src, space_left);
+	dst[dstsize - 1] = '\0';
 	return (dest_len + src_len);
 }

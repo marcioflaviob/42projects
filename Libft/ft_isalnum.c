@@ -21,9 +21,9 @@ static int	ft_isdigit(int a)
 		return (1);
 }
 
-int	ft_isalnum(int a)
+int	ft_isalnum(int c)
 {
-	if (!(ft_isalpha(a)) || !(ft_isdigit(a)))
+	if (!(ft_isalpha(c)) || !(ft_isdigit(c)))
 		return (0);
 	else
 		return (1);

@@ -10,7 +10,7 @@ static int	ft_isdigit(int a)
 		return (1);
 }
 
-int ft_atoi(char *str)
+int ft_atoi(const char *str)
 {
     int i;
     int sign;

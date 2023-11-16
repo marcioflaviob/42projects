@@ -1,15 +1,20 @@
 
+//#include <stddef.h>
+#include <stdio.h>
 
-#include<stdio.h>
+//void *memset(void *b, int c, size_t len);
+//void *ft_memset(char *ptr, int value, int num)
 
-void ft_memset(char *ptr, int value, int num)
+void *ft_memset(void *b, int c, size_t len)
 {
+    unsigned char   *str;
     int i;
 
+    str = b;
     i = 0;
-    while (i < num)
+    while (i < len)
     {
-        ptr[i] = value;
+        str[i] = c;
         i++;
     }
 }
