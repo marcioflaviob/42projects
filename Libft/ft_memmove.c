@@ -2,20 +2,20 @@
 
 #include <stddef.h>
 
-void *ft_memmove(void *dest, const void *src, size_t n) {
-    unsigned char *d = dest;
+void *ft_memmove(void *dst, const void *src, size_t len) {
+    unsigned char *d = dst;
     const unsigned char *s = src;
 
     if (d < s) {
-        while (n--) {
+        while (len--) {
             *d++ = *s++;
         }
     } else if (d > s) {
-        d += n;
-        s += n;
-        while (n--) {
+        d += len;
+        s += len;
+        while (len--) {
             *(--d) = *(--s);
         }
     }
-    return dest;
+    return dst;
 }

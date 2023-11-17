@@ -23,7 +23,7 @@ int	main(void)
 	char dest4a[] = "abc";
 	char src4b[] = "12345";
 	char dest4b[] = "abc";
-	
+
 	int a = ft_strlcpy(dest1a, src1a, 0);
 	int b = strlcpy(dest1a, src1a, 0);
 	printf("%d, %d", a, b);
@@ -45,7 +45,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	unsigned int	i;
 	unsigned int	src_size;

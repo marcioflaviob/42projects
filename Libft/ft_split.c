@@ -63,12 +63,16 @@ char	**ft_split(char *str, char c)
 	char	**tab;
 
 	tab = (char **) malloc((count_words(str, c) + 1) * sizeof(char *));
+	if (tab == NULL)
+		return (NULL);
 	i = 0;
 	j = 0;
 	x = 0;
 	while (i < count_words(str, c))
 	{
 		tab[i] = (char *) malloc(get_bigg(str, c) + 1 * sizeof(char));
+		if (tab[i] == NULL)
+			return (NULL);
 		while ((str[j] == c) && (str[j] != 0))
 			j++;
 		while ((str[j] != c) && (str[j] != 0))
