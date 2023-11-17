@@ -2,7 +2,7 @@
 
 #include <string.h>
 #include <stdio.h>
-
+/*
 size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize);
 
 int	main(void)
@@ -34,8 +34,8 @@ int	main(void)
 			ft_strlcpy(dest3a, src3a, 0) == strlcpy(dest3b, src3b, 0) ? "Pass" : "Fail",
 			ft_strlcpy(dest4a, src4a, 2) == strlcpy(dest4b, src4b, 2) ? "Pass" : "Fail");
 }
-
-size_t	ft_strlen(const char *str)
+*/
+static size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 

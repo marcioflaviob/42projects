@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int count_digits(unsigned int n)
+static int count_digits(unsigned int n)
 {
     int counter;
 

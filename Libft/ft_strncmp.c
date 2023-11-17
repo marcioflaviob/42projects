@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int	ft_strcount(char *str, char *str2, unsigned int n)
+static int	ft_strcount(char *str, char *str2, unsigned int n)
 {
 	int	i;
 	int	int_n;

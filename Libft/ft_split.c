@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_strlen(char *str)
+static int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -13,7 +13,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	count_words(char *str, char c)
+static int	count_words(char *str, char c)
 {
 	int	i;
 	int	words;
@@ -32,7 +32,7 @@ int	count_words(char *str, char c)
 	return (words);
 }
 
-int	get_bigg(char *str, char c)
+static int	get_bigg(char *str, char c)
 {
 	int	i;
 	int	j;
