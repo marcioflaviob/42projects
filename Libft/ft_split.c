@@ -81,7 +81,7 @@ char	**ft_split(char *str, char c)
 		x = 0;
 		i++;
 	}
-	tab[i] = NULL;
+	tab[i] = '\0';
 	return (tab);
 }
 

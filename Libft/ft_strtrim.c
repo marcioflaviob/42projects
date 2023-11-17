@@ -34,7 +34,7 @@ char *ft_strtrim(char const *s1, char const *set)
 
     i = 0;
     j = 0;
-    result = (char *) malloc(ft_strlen(s1) * sizeof(char));
+    result = (char *) malloc((ft_strlen(s1) + 1) * sizeof(char));
     if (result == NULL)
         return (NULL);
     while (s1[i])
@@ -44,6 +44,7 @@ char *ft_strtrim(char const *s1, char const *set)
         else
             i++;
     }
+    result[j] = NULL;
     return (result);
 }
 /*
