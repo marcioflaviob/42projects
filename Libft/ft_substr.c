@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 12:10:34 by mbrandao          #+#    #+#             */
+/*   Updated: 2023/11/22 12:10:36 by mbrandao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -21,6 +31,8 @@ char    *ft_substr (char const *s, unsigned int start, size_t len)
 
     i = 0;
     real_len = (len > ft_strlen(s) ? ft_strlen(s) : len);
+    if (start > (ft_strlen(s) - 1))
+        return (NULL);
     str = (char *) malloc((real_len + 1) * sizeof(char));
     if (str == NULL)
         return (NULL);
@@ -37,6 +49,6 @@ char    *ft_substr (char const *s, unsigned int start, size_t len)
 int main()
 {
     char *str = "Hello Wonderful World!";
-    printf("%s", ft_substr(str, 6, 9));
+    printf("%s", ft_substr(str, 60, 9));
     return 0;
 }*/

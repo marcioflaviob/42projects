@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 12:03:57 by mbrandao          #+#    #+#             */
+/*   Updated: 2023/11/22 12:04:01 by mbrandao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdlib.h>
 
@@ -20,7 +30,7 @@ void    *ft_calloc(size_t count, size_t size)
     size_t  totalsize;
     void    *arr;
 
-    if (count == 0 || size == 0)
+    if (count <= 0 || size <= 0)
 		return (NULL);
     totalsize = count * size;
     arr = (void *) malloc(totalsize);

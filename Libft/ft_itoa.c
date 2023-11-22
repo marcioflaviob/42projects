@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 12:04:32 by mbrandao          #+#    #+#             */
+/*   Updated: 2023/11/22 12:04:34 by mbrandao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,7 +35,7 @@ char    *ft_itoa(int n)
 
     num = (n < 0 ? (n * -1) : n);
     size = count_digits(num);
-    i = size - (n > 0);
+    i = size - (n >= 0);
     result = (char *) malloc((size + (n < 0) + 1) * sizeof(char));
     if (result == NULL)
         return (NULL);
@@ -41,6 +51,6 @@ char    *ft_itoa(int n)
 /*
 int main()
 {
-    //printf("%d", count_digits(1234));
-    printf("%s", ft_itoa(123123));
+    //printf("%d", count_digits(0));
+    printf("%s", ft_itoa(0));
 }*/

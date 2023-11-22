@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 12:10:30 by mbrandao          #+#    #+#             */
+/*   Updated: 2023/11/22 12:10:32 by mbrandao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -26,6 +36,22 @@ static int char_check(char c, char const *set)
     return (0);
 }
 
+static int  count_chars(const char *s1, const char *set)
+{
+    int i;
+    int counter;
+
+    i = 0;
+    counter = 0;
+    while (s1[i])
+    {
+        if (char_check(s1[i], set))
+            counter++;
+        i++;
+    }
+    return (counter);
+}
+
 char *ft_strtrim(char const *s1, char const *set)
 {
     int i;
@@ -34,7 +60,7 @@ char *ft_strtrim(char const *s1, char const *set)
 
     i = 0;
     j = 0;
-    result = (char *) malloc((ft_strlen(s1) + 1) * sizeof(char));
+    result = (char *) malloc((ft_strlen(s1) - count_chars(s1, set) + 1) * sizeof(char));
     if (result == NULL)
         return (NULL);
     while (s1[i])
