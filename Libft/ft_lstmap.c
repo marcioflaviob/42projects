@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 #include "libft.h"
-
+/*
 static t_list *ft_lstlast(t_list *lst)
 {
     while (lst->next != NULL)
@@ -10,7 +10,14 @@ static t_list *ft_lstlast(t_list *lst)
     return lst;
 }
 
-static void ft_lstadd_back(t_list *lst, t_list *new)
+
+static void ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+    del(lst->content);
+    free(lst);
+}*/
+
+static void ft_lstback(t_list *lst, t_list *new)
 {
     t_list  *last_node;
 
@@ -21,12 +28,6 @@ static void ft_lstadd_back(t_list *lst, t_list *new)
     }
     last_node = ft_lstlast(lst);
     last_node->next = new;
-}
-
-static void ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-    del(lst->content);
-    free(lst);
 }
 
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
@@ -51,7 +52,7 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
         else
         {
             lst->content = new_content;
-            ft_lstadd_back(new_list, lst);
+            ft_lstback(new_list, lst);
         }
         lst = lst->next;
     }

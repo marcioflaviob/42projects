@@ -3,16 +3,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-		i++;
-	return (i);
-}
-
 static int	count_words(char *str, char c)
 {
 	int	i;
@@ -81,7 +71,7 @@ char	**ft_split(char *str, char c)
 		x = 0;
 		i++;
 	}
-	tab[i] = '\0';
+	tab[i] = NULL;
 	return (tab);
 }
 

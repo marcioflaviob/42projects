@@ -5,7 +5,7 @@
 static void    ft_bzero(void *s, size_t n)
 {
     unsigned char   *str;
-    int i;
+    size_t i;
 
     str = s;
     i = 0;
@@ -15,15 +15,13 @@ static void    ft_bzero(void *s, size_t n)
     }
 }
 
-void    *calloc(size_t count, size_t size)
+void    *ft_calloc(size_t count, size_t size)
 {
-    size_t  i;
     size_t  totalsize;
     void    *arr;
 
     if (count == 0 || size == 0)
 		return (NULL);
-    i = 0;
     totalsize = count * size;
     arr = (void *) malloc(totalsize);
     if (arr == NULL)

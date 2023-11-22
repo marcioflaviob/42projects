@@ -2,7 +2,7 @@
 
 #include <stddef.h>
 
-int my_memcmp(const void *s1, const void *s2, size_t n) {
+int ft_memcmp(const void *s1, const void *s2, size_t n) {
     size_t  i;
     const unsigned char *c1 = s1;
     const unsigned char *c2 = s2;

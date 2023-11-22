@@ -32,7 +32,7 @@ char *ft_strjoin(char *s1, char *s2)
 	}
 	while (s2[j] != '\0')
 		result[i++] = s2[j++];
-	result[i] = NULL;
+	result[i] = 0;
 	return (result);
 }
 /*

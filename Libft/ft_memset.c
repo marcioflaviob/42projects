@@ -8,7 +8,7 @@
 void *ft_memset(void *b, int c, size_t len)
 {
     unsigned char   *str;
-    int i;
+    size_t i;
 
     str = b;
     i = 0;
@@ -17,6 +17,7 @@ void *ft_memset(void *b, int c, size_t len)
         str[i] = c;
         i++;
     }
+    return (str);
 }
 /*
 int main()
