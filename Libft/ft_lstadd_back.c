@@ -6,11 +6,10 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:04:36 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:04:38 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:33:49 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 /*
 static t_list *ft_lstlast(t_list *lst)
@@ -24,6 +23,13 @@ void ft_lstadd_back(t_list **lst, t_list *new)
 {
     t_list  *last_node;
 
+    if (new == NULL)
+        return;
+    if (*lst == NULL)
+    {
+        *lst = new;
+        return;
+    }
     last_node = ft_lstlast(*lst);
     last_node->next = new;
 }

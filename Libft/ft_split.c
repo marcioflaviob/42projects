@@ -6,14 +6,13 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:06:22 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:06:23 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:35:17 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-static int	count_words(char *str, char c)
+static int	count_words(char const *str, char const c)
 {
 	int	i;
 	int	words;
@@ -32,7 +31,7 @@ static int	count_words(char *str, char c)
 	return (words);
 }
 
-static int	get_bigg(char *str, char c)
+static int	get_bigg(char const *str, char const c)
 {
 	int	i;
 	int	j;
@@ -55,28 +54,28 @@ static int	get_bigg(char *str, char c)
 	return (k);
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_split(char const *s, char const c)
 {
 	int		i;
 	int		j;
 	int		x;
 	char	**tab;
 
-	tab = (char **) malloc((count_words(str, c) + 1) * sizeof(char *));
+	tab = (char **) malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (tab == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
 	x = 0;
-	while (i < count_words(str, c))
+	while (i < count_words(s, c))
 	{
-		tab[i] = (char *) malloc(get_bigg(str, c) + 1 * sizeof(char));
+		tab[i] = (char *) malloc(get_bigg(s, c) + 1 * sizeof(char));
 		if (tab[i] == NULL)
 			return (NULL);
-		while ((str[j] == c) && (str[j] != 0))
+		while ((s[j] == c) && (s[j] != 0))
 			j++;
-		while ((str[j] != c) && (str[j] != 0))
-			tab[i][x++] = str[j++];
+		while ((s[j] != c) && (s[j] != 0))
+			tab[i][x++] = s[j++];
 		tab[i][x] = '\0';
 		x = 0;
 		i++;

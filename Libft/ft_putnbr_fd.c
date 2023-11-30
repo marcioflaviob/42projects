@@ -6,12 +6,11 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:06:10 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:06:12 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:07:34 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 
 static void ft_print(int n, int fd)
 {

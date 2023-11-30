@@ -6,13 +6,13 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:03:53 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:03:54 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:29:23 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
-#include <stddef.h>
+#include "libft.h"
 
 void    ft_bzero(void *s, size_t n)
 {

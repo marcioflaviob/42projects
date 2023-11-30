@@ -6,15 +6,16 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:05:17 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:05:19 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:35:25 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 t_list *ft_lstlast(t_list *lst)
 {
+    if (lst == NULL)
+        return (NULL);
     while (lst->next != NULL)
         lst = lst->next;
     return lst;

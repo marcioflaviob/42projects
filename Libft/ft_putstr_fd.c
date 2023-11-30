@@ -6,16 +6,11 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:06:16 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:06:18 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:07:50 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-static void ft_putchar_fd(char c, int fd)
-{
-    write (fd, &c, 1);
-}
+#include "libft.h"
 
 void ft_putstr_fd(char *s, int fd)
 {

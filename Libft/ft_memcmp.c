@@ -6,11 +6,11 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:05:40 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:05:42 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:05:54 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int ft_memcmp(const void *s1, const void *s2, size_t n) {
     size_t  i;

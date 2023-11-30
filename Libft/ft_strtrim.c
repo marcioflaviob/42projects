@@ -6,21 +6,19 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:10:30 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:10:32 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:14:26 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *s)
+static char	*null_handler()
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+    char    *str;
+    
+	str = malloc(1);
+	str[0] = '\0';
+	return (str);
 }
 
 static int char_check(char c, char const *set)
@@ -56,21 +54,28 @@ char *ft_strtrim(char const *s1, char const *set)
 {
     int i;
     int j;
+    int trimmed_len;
     char *result;
 
     i = 0;
     j = 0;
-    result = (char *) malloc((ft_strlen(s1) - count_chars(s1, set) + 1) * sizeof(char));
+    if (!s1)
+        return (null_handler());
+    if (!set)
+        set = "";
+    trimmed_len = ft_strlen(s1) - count_chars(s1, set);
+    if (trimmed_len <= 0)
+        return (null_handler());
+    result = (char *) malloc(trimmed_len + 1 * sizeof(char));
     if (result == NULL)
         return (NULL);
     while (s1[i])
     {
         if (!char_check(s1[i], set))
-            result[j++] = s1[i++];
-        else
-            i++;
+            result[j++] = s1[i];
+        i++;
     }
-    result[j] = 0;
+    result[j] = '\0';
     return (result);
 }
 /*

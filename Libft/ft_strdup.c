@@ -6,23 +6,11 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:06:46 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:06:48 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:08:46 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {
@@ -30,7 +18,7 @@ char	*ft_strdup(const char *s1)
 	char	*new;
 
 	i = 0;
-	new = (char *) malloc (ft_strlen(s1) * sizeof(char));
+	new = (char *) malloc ((ft_strlen(s1) + 1) * sizeof(char));
 	if (new == NULL)
 		return (NULL);
 	while (s1[i] != 0)

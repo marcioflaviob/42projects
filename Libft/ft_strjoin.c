@@ -6,25 +6,13 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:09:54 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:09:56 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:33:18 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-char *ft_strjoin(char *s1, char *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
 	int	i;
 	int	j;

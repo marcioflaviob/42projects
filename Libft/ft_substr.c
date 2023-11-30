@@ -6,36 +6,39 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:10:34 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:10:36 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:14:53 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *s)
+static char	*null_handler()
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+    char    *str;
+    
+	str = malloc(1);
+	str[0] = '\0';
+	return (str);
 }
 
-char    *ft_substr (char const *s, unsigned int start, size_t len)
+char    *ft_substr(char const *s, unsigned int start, size_t len)
 {
     size_t  i;
+    size_t  s_len;
     size_t  real_len;
     char    *str;
 
     i = 0;
-    real_len = (len > ft_strlen(s) ? ft_strlen(s) : len);
-    if (start > (ft_strlen(s) - 1))
-        return (NULL);
+    s_len = ft_strlen(s);
+    if (start > (s_len - 1))
+        return (null_handler());
+    real_len = (len > (s_len - start) ? (s_len - start) : len);
     str = (char *) malloc((real_len + 1) * sizeof(char));
     if (str == NULL)
-        return (NULL);
+    {   
+        free(str);
+        return (null_handler());
+    }
     while (i < real_len)
     {
         str[i] = (s + start)[i];
@@ -44,11 +47,11 @@ char    *ft_substr (char const *s, unsigned int start, size_t len)
     str[i] = 0;
     return (str);
 }
-
 /*
 int main()
 {
     char *str = "Hello Wonderful World!";
-    printf("%s", ft_substr(str, 60, 9));
-    return 0;
-}*/
+    printf("%s", ft_substr(str, 6, 9));
+    return (0);
+}
+*/

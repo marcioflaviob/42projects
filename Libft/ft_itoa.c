@@ -6,12 +6,11 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:04:32 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:04:34 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:32:45 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static int count_digits(unsigned int n)
 {

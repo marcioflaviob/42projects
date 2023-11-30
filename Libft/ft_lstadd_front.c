@@ -6,11 +6,10 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:04:53 by mbrandao          #+#    #+#             */
-/*   Updated: 2023/11/22 12:04:57 by mbrandao         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:33:58 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 void ft_lstadd_front(t_list **lst, t_list *new)
