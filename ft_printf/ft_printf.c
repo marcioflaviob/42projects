@@ -1,42 +1,6 @@
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-
-static void    ft_putchar(char c)
-{
-    write(1, &c, 1);
-}
-
-static void ft_putstr(char *s)
-{
-    int i;
-
-    i = 0;
-    while (s[i])
-        ft_putchar(s[i++]);
-}
-
-static void ft_putnbr(int n)
-{
-	unsigned int nb;
-
-	if (n < 0)
-	{
-		ft_putchar('-');
-		nb = n * -1;
-	}
-	else
-		nb = n;
-	if (nb > 9)
-	{
-		ft_putnbr((nb / 10));
-		ft_putnbr((nb % 10));
-	}
-	else
-		ft_putchar(nb + 48);
-}
-
+#include "libftprintf.h"
+/*
 static int char_check(char c)
 {
     int i;
@@ -72,15 +36,22 @@ static int args_counter(const char *str)
     }
     return (counter);
 }
+*/
 
-void flag_dealer(va_list args, char c)
+static void flag_dealer(va_list args, char c)
 {
     if (c == 'c')
         ft_putchar(va_arg(args, int));
-    else if (c == 'i')
-        ft_putnbr(va_arg(args, int));
     else if (c == 's')
         ft_putstr(va_arg(args, char *));
+    else if (c == 'i')
+        ft_putnbr(va_arg(args, int));
+    else if (c == 'x')
+        ft_putnbr_base(va_arg(args, int), 1);
+    else if (c == 'X')
+        ft_putnbr_base(va_arg(args, int), 0);
+    else if (c == '%')
+        ft_putchar('%');
 }
 
 int ft_printf(const char *str, ...)
@@ -101,7 +72,7 @@ int ft_printf(const char *str, ...)
         if (str[i])
             i++;
     }
-
+    va_end(args);
     return (0);
 }
 
@@ -109,6 +80,6 @@ int main()
 {
     char *str = "test";
     //printf("aha %s a", str);
-    ft_printf("aha %c a", '$');
+    ft_printf("a char: %c\nan int: %i\na hexa number: %x\na string: %s", '$', 5242189, 42, "testing");
     return (0);
 }
