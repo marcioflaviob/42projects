@@ -7,9 +7,11 @@
 #include <stdarg.h>
 #include <limits.h>
 
-void        ft_putchar(char c);
-void        ft_putnbr(int n);
-void        ft_putstr(char *s);
-void	ft_putnbr_base(int nbr, int type);
+int         ft_printf(const char *, ...);
+void        ft_putchar(char c, int *counter);
+void        ft_putnbr(int n, int *counter);
+void        ft_putunsnbr(unsigned int nb, int *counter);
+void        ft_putstr(char *s, int *counter);
+void	ft_putnbr_base(int nbr, int *counter, int type);
 
 #endif

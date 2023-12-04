@@ -1,7 +1,7 @@
 
 #include "libftprintf.h"
 
-void	ft_putnbr_base(int nbr, int type)
+void	ft_putnbr_base(int nbr, int *counter, int type)
 {
 	char *base;
 	unsigned int	base_size;
@@ -11,18 +11,18 @@ void	ft_putnbr_base(int nbr, int type)
 	base_size = 16;
 	if (nbr < 0)
 	{
-		ft_putchar('-');
+		ft_putchar('-', counter);
 		n = nbr * -1;
 	}
 	else
 		n = nbr;
 	if (n > base_size)
 	{
-		ft_putnbr_base((n / base_size), type);
-		ft_putnbr_base((n % base_size), type);
+		ft_putnbr_base((n / base_size), counter, type);
+		ft_putnbr_base((n % base_size), counter, type);
 	}
 	else
-		ft_putchar(base[n]);
+		ft_putchar(base[n], counter);
 }
 /*
 int		main(void)
