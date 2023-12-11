@@ -5,6 +5,7 @@ SRCS += ft_putnbr_base.c
 SRCS += ft_putnbr.c
 SRCS += ft_putstr.c
 SRCS += ft_putunsnbr.c
+SRCS += ft_putnbr_p.c
 
 OBJS		= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 
@@ -14,7 +15,7 @@ NAME		= libftprintf.a
 
 INCLUDES	= ./
 
-HEADER		= $(INCLUDES)libftprintf.h
+HEADER		= $(INCLUDES)ft_printf.h
 
 CC			= cc
 
