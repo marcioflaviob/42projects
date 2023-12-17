@@ -15,22 +15,29 @@ void    print_int(int *a, int *b, int size)
 void    do_swap(t_list *stack)
 {
     int size;
-    int temp;
+    int *temp;
 
     size = ft_lstsize(stack);
     if (size <= 1)
         return;
-    temp = stack->content;
+    temp = (int *) stack->content;
     stack->content = stack->next->content;
     stack->next->content = temp;
 }
 
-void    print_nbr(int a)
+void    print_nbr(t_list *a)
 {
-    if (a == NULL)
+    int *num;
+
+    num = malloc(sizeof(int));
+    if (a->content == NULL)
         ft_putchar_fd('X', 1);
     else
-        ft_putnbr_fd(a, 1);
+    {
+        *num = *(int *)(a->content);
+        ft_putnbr_fd(*num, 1);
+    }
+    free (num);
 }
 
 /*
@@ -70,12 +77,12 @@ void    print_stacks(t_list *a, t_list *b)
     size = ft_lstsize(a);
     while(size > 0)
     {
-        print_nbr(a->content);
+        print_nbr(a);
         ft_putchar_fd(' ', 1);
-        print_nbr(b->content);
+        print_nbr(b);
         ft_putchar_fd('\n', 1);
-        a++;
-        b++;
+        a = a->next;
+        b = b->next;
         size--;
     }
 }
@@ -83,7 +90,7 @@ void    print_stacks(t_list *a, t_list *b)
 int main()
 {
     
-    int array[] = {8, 3, 4, 5, 1, 7, 6};
+    int *array[] = {8, 3, 4, 5, 1, 7, 6};
     int size = 7;
     int i = 0;
     t_list  *stack_a;
@@ -92,15 +99,22 @@ int main()
     stack_b = NULL;
     stack_b = init_b(stack_b, size);
 
-    stack_a = ft_lstnew(array[i++]);
+    stack_a = ft_lstnew(&array[i++]);
     while(i < size)
     {
-        ft_lstadd_back(&stack_a, ft_lstnew(array[i++]));
+        // I'm not mallocing the space for the ints, might be a problem.
+        ft_lstadd_back(&stack_a, ft_lstnew(&array[i++]));
     }
 
     //do_push(&stack_a, &stack_b);
 
     //print_nbr(stack_a->content);
+
+    //stack_a = stack_a->next;
+
+    //ft_putchar_fd(*a + 48, 1);
+    //ft_putnbr_fd(*a, 1);
+
 
     print_stacks(stack_a, stack_b);
 
