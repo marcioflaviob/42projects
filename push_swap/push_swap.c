@@ -12,24 +12,44 @@ void    print_int(int *a, int *b, int size)
     }
 }
 
-void    do_swap(int *stack)
+void    do_swap(t_list *stack)
 {
+    int size;
     int temp;
 
-    temp = stack[0];
-    stack[0] = stack[1];
-    stack[1] = temp;
-}
-
-void    do_pa(int *a, int *b)
-{
-    if (b[0] == NULL)
+    size = ft_lstsize(stack);
+    if (size <= 1)
         return;
-    else
-    {
-
-    }
+    temp = stack->content;
+    stack->content = stack->next->content;
+    stack->next->content = temp;
 }
+
+void    print_nbr(int a)
+{
+    if (a == NULL)
+        ft_putchar_fd('X', 1);
+    else
+        ft_putnbr_fd(a, 1);
+}
+
+/*
+void    do_push(t_list *donor, t_list *receiver)
+{
+    t_list *temp;
+    //print_nbr(donor->content);
+
+    temp = donor;
+    //print_nbr(temp->content);
+    ft_lstdelone(donor, delete_node);
+    //print_nbr(temp->next->content);
+    donor = donor->next;
+    //print_nbr(donor->content);
+    //print_nbr(receiver->content);
+    ft_lstadd_front(&receiver, temp);
+    //print_nbr(receiver->content);
+}
+*/
 
 t_list *init_b(t_list *b, int size)
 {
@@ -42,13 +62,6 @@ t_list *init_b(t_list *b, int size)
     return (b);
 }
 
-void    print_nbr(int a)
-{
-    if (a == NULL)
-        ft_putchar_fd('X', 1);
-    else
-        ft_putnbr_fd(a, 1);
-}
 
 void    print_stacks(t_list *a, t_list *b)
 {
@@ -76,6 +89,7 @@ int main()
     t_list  *stack_a;
     t_list  *stack_b;
 
+    stack_b = NULL;
     stack_b = init_b(stack_b, size);
 
     stack_a = ft_lstnew(array[i++]);
@@ -83,12 +97,12 @@ int main()
     {
         ft_lstadd_back(&stack_a, ft_lstnew(array[i++]));
     }
-    //ft_lstiter(stack_a, print_nbr);
+
+    //do_push(&stack_a, &stack_b);
+
+    //print_nbr(stack_a->content);
+
     print_stacks(stack_a, stack_b);
 
-    //printf("%d", stack_a[0]->content);
-    //printf("%d", stack_a[0]->next->content);
-    //do_sa(stack_a);
-    //print_int(stack_a, stack_b, 7);
     return (0);
 }
